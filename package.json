@@ -1,0 +1,22 @@
+{
+  "name": "mars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^3.0.2",
+    "vite": "^4.5.2"
+  },
+  "dependencies": {
+    "eventemitter3-timer": "^1.0.1",
+    "howler": "^2.2.3",
+    "pixi.js": "^7.0.5"
+  }
+}
