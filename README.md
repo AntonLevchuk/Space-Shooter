@@ -7,6 +7,7 @@ This project was created using build tool [`Vite`](https://vitejs.dev/guide/).
 - node v21.7.1
 - Pixi.js
 - eventemitter3-timer
+- Vite
 
 
 # Start project 
