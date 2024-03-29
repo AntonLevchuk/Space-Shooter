@@ -36,7 +36,6 @@ let allBullets;
 let playerBullets;
 let bossBullets;
 let timer;
-let boss;
 
 let startBossRound = false;
 let resetedValues = false;

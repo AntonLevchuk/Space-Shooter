@@ -7,7 +7,6 @@ import { updateTextPanel } from '../common/textPanel'
 
 let player;
 let app;
-// let lockTimeout
 export let playerShots = 0;
 
 export const addPlayer = (currApp, root) => {

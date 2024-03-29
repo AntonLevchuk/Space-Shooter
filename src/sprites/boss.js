@@ -94,14 +94,6 @@ export const bossTakeDamage = () => {
     }
 }
 
-// const changeDirection = (_isChanged, _container) => {
-//     if (!_isChanged && Math.random() * 100 > appConstants.probability.bossChangeDirection) {
-//         _container.children.forEach((el) => {
-//             el.customData.left = !el.customData.left;
-//         })
-//     }
-// }
-
 export const bossTick = () => {
     if (bossHp > 0) {
         bossContainer.visible = true;
@@ -125,14 +117,6 @@ export const bossTick = () => {
                         directionChanged = true;
                     }
                 }
-
-                // if (bossContainer.children.every(elem => !elem.directionChanged) && Math.random() * 100 < 1) {
-                //     bossContainer.children.forEach((_child) => {
-                //         _child.customData.left = !_child.customData.left;
-                //     })
-                // }
-
-                // changeDirection(directionChanged, bossContainer);
                 
                 if (timeout) {
                     addBullet({x: el.position.x, y: el.position.y, width: el.width}, 0xd11427, false);
