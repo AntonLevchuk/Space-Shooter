@@ -1,5 +1,5 @@
-import { Container, Graphics} from 'pixi.js'
-import appConstants from '../common/constants'
+import { Container, Graphics } from "pixi.js";
+import appConstants from "../common/constants";
 
 let app;
 let allBullets;
@@ -19,14 +19,14 @@ export const initBullets = (currApp, root) => {
     playerBullets.name = appConstants.containers.playerBullets;
     bossBullets.name = appConstants.containers.bossBullets;
     app = currApp;
-    
+
     allBullets.addChild(playerBullets);
     allBullets.addChild(bossBullets);
 
     return allBullets;
-}
+};
 
-export const addBullet = (data, _colour=0x66CCFF, _playerBoolet=true) => {
+export const addBullet = (data, _colour = 0x66ccff, _playerBoolet = true) => {
     let rectangle = new Graphics();
 
     rectangle.beginFill(_colour);
@@ -43,20 +43,20 @@ export const addBullet = (data, _colour=0x66CCFF, _playerBoolet=true) => {
         bossBullets.addChild(rectangle);
     }
     bulletIndex++;
-}
+};
 
 export const destroyBullet = (bulletName) => {
     let bullet;
     if (playerBullets.getChildByName(bulletName)) {
         bullet = playerBullets.getChildByName(bulletName);
         playerBullets.removeChild(bullet);
-        bullet.destroy({children: true});
+        bullet.destroy({ children: true });
     } else if (bossBullets.getChildByName(bulletName)) {
         bullet = bossBullets.getChildByName(bulletName);
         bossBullets.removeChild(bullet);
-        bullet.destroy({children: true});
+        bullet.destroy({ children: true });
     }
-}
+};
 
 export const destroyAllBullets = () => {
     playerBullets.children.forEach((_pBullet) => {
@@ -65,7 +65,7 @@ export const destroyAllBullets = () => {
     bossBullets.children.forEach((_bBullet) => {
         destroyBullet(_bBullet.name);
     });
-}
+};
 
 export const bulletTick = () => {
     playerBullets.children.forEach((pb) => {
@@ -85,4 +85,4 @@ export const bulletTick = () => {
             bb.position.y += bulletSpeed * 2;
         }
     });
-}
+};

@@ -1,8 +1,8 @@
-import { Container, Sprite, Graphics } from "pixi.js"
-import { allTextureKeys } from '../common/textures'
-import { getTexture } from "../common/assets"
-import appConstants from "../common/constants"
-import { addBullet } from "./bullets"
+import { Container, Sprite, Graphics } from "pixi.js";
+import { allTextureKeys } from "../common/textures";
+import { getTexture } from "../common/assets";
+import appConstants from "../common/constants";
+import { addBullet } from "./bullets";
 
 let boss;
 let bossContainer;
@@ -19,7 +19,7 @@ export const initBoss = () => {
     bossContainer.visible = false;
 
     return bossContainer;
-}
+};
 
 export const addBoss = () => {
     boss = new Sprite(getTexture(allTextureKeys.shipBoss));
@@ -29,7 +29,7 @@ export const addBoss = () => {
     boss.scale.set(0.7);
     boss.customData = {
         left: true,
-        isAlive: true
+        isAlive: true,
     };
 
     bossHp = appConstants.amount.bossHp;
@@ -37,10 +37,9 @@ export const addBoss = () => {
     bossContainer.addChild(boss);
 
     return boss;
-}
+};
 
 export const addHealthBar = () => {
-    
     backgroundHealthBar = new Graphics();
     backgroundHealthBar.beginFill(0x959595);
     backgroundHealthBar.drawRect(0, 0, boss.width, 8);
@@ -53,13 +52,18 @@ export const addHealthBar = () => {
     healthBar.endFill();
     healthBar.pivot.set(backgroundHealthBar.width / 2);
 
-    backgroundHealthBar.position.set(appConstants.size.WIDTH / 2, (boss.position.y - boss.height / 2 - 20));
-    healthBar.position.set(appConstants.size.WIDTH / 2, (boss.position.y - boss.height / 2 - 20));
+    backgroundHealthBar.position.set(
+        appConstants.size.WIDTH / 2,
+        boss.position.y - boss.height / 2 - 20
+    );
+    healthBar.position.set(
+        appConstants.size.WIDTH / 2,
+        boss.position.y - boss.height / 2 - 20
+    );
 
     backgroundHealthBar.customData = {
         left: true,
     };
-
 
     healthBar.customData = {
         left: true,
@@ -67,7 +71,7 @@ export const addHealthBar = () => {
 
     bossContainer.addChild(backgroundHealthBar);
     bossContainer.addChild(healthBar);
-}
+};
 
 setInterval(() => {
     timeout = true;
@@ -77,22 +81,23 @@ export const resetBoss = () => {
     bossContainer.removeChildren();
     addBoss();
     addHealthBar();
-}
+};
 
 export const destroyBoss = () => {
     bossContainer.children.forEach((el) => {
         bossContainer.removeChild(el);
-        el.destroy({children: true});
+        el.destroy({ children: true });
     });
-}
+};
 
 export const bossTakeDamage = () => {
     if (bossHp > 0) {
         bossHp -= 1;
-        let healthBarWidth = healthBar.width / appConstants.amount.bossHp * bossHp;
+        let healthBarWidth =
+            (healthBar.width / appConstants.amount.bossHp) * bossHp;
         healthBar.width = healthBarWidth;
     }
-}
+};
 
 export const bossTick = () => {
     if (bossHp > 0) {
@@ -117,12 +122,16 @@ export const bossTick = () => {
                         directionChanged = true;
                     }
                 }
-                
+
                 if (timeout) {
-                    addBullet({x: el.position.x, y: el.position.y, width: el.width}, 0xd11427, false);
+                    addBullet(
+                        { x: el.position.x, y: el.position.y, width: el.width },
+                        0xd11427,
+                        false
+                    );
                     timeout = false;
                 }
             });
         }
     }
-}
+};

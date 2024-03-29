@@ -4,16 +4,16 @@ const appConstants = {
         HEIGHT: 720,
     },
     containers: {
-        player: 'player',
-        allBullets: 'allBullets',
-        playerBullets: 'playerBullets',
-        bossBullets: 'bossBullets',
-        asteroids: 'asteroids',
-        bossContainer: 'bossContainer',
-        boss: 'boss'
+        player: "player",
+        allBullets: "allBullets",
+        playerBullets: "playerBullets",
+        bossBullets: "bossBullets",
+        asteroids: "asteroids",
+        bossContainer: "bossContainer",
+        boss: "boss",
     },
     probability: {
-        bossChangeDirection: 20
+        bossChangeDirection: 20,
     },
     timeValues: {
         roundTime: 60,
@@ -27,12 +27,12 @@ const appConstants = {
         playerHp: 1,
     },
     text: {
-        looseRoundText: 'YOU LOSE',
-        wonRoundText: 'YOU WIN',
-        looseRoundButtonText: 'Try Again',
-        wonRoundButtonText: 'Play Again',
-        bossFightText: 'Boss Fight'
-    }
-}
+        looseRoundText: "YOU LOSE",
+        wonRoundText: "YOU WIN",
+        looseRoundButtonText: "Try Again",
+        wonRoundButtonText: "Play Again",
+        bossFightText: "Boss Fight",
+    },
+};
 
 export default appConstants;

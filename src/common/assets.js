@@ -1,5 +1,5 @@
-import {Assets} from 'pixi.js'
-import appTextures, { allTextureKeys } from './textures'
+import { Assets } from "pixi.js";
+import appTextures, { allTextureKeys } from "./textures";
 
 Object.entries(appTextures).forEach(([key, value]) => {
     Assets.add(key, value);
@@ -13,12 +13,12 @@ export const loadAssets = (onProgress) => {
         Object.entries(data).forEach(([key, value]) => {
             textures.set(key, value);
         });
-        onProgress('all');
+        onProgress("all");
     });
 };
 
 export const getTexture = (id) => {
-    if(textures.has(id)){
+    if (textures.has(id)) {
         return textures.get(id);
     }
     return null;
